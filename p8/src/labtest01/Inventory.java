@@ -52,9 +52,10 @@ public class Inventory {
 	 *            The type of item to dispose of
 	 * @param pQuantity
 	 *            The amount to dispose.
-	 * @pre aInventory.containsKey(pItem) && pQuantity >= aInventory.get(pItem)
+	 * @pre pAvailable(pItem) >= pQuantity
 	 */
 	public void dispose(Item pItem, int pQuantity) {
+		assert pAvailable(pItem) >= pQuantity;
 		int amount = aInventory.get(pItem);
 		amount -= pQuantity;
 		aInventory.put(pItem, amount);
