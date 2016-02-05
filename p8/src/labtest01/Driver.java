@@ -34,7 +34,13 @@ public final class Driver {
 		System.out.println();
 
 		// test assert
-		// inv.dispose(ITEM_BUTTER, 20); // should raise AssertionError
+		try {
+			inv.dispose(ITEM_BUTTER, 20);
+		} catch (AssertionError e) {
+			System.out.println("got expected error");
+		}
+
+		System.out.println();
 
 		// test PriceComparator
 		Arrays.sort(ITEMS, Item.getPriceComparator());
